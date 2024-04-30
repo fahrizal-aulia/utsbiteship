@@ -12,16 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->char('sku', 255);
-            $table->unsignedBigInteger('product_category');
-            $table->string('prodct_name');
-            $table->string('prodct_detail');
-            $table->unsignedBigInteger('product_brand');
+            $table->bigIncrements('id');
+            $table->string('sku');
+            $table->bigInteger('product_category')->unsigned();
+            $table->text('product_name');
+            $table->text('product_detail');
+            $table->bigInteger('product_brand')->unsigned();
             $table->integer('product_price');
-            $table->string('image')->nullable();
-            $table->string('slug')->unique();
+            $table->string('fileimages', 255);
+            $table->double('product_length');
+            $table->double('product_width');
+            $table->double('product_height');
+            $table->double('product_weight');
+            $table->string('status', 255);
+            $table->enum('deleted', ['yes', 'no']);
             $table->timestamps();
+            $table->string('slug', 255);
         });
     }
 
