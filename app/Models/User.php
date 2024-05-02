@@ -17,21 +17,23 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    use Notifiable;
+
+    protected $guarded = ['id'];
+
+    protected $hidden = [
+        'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public function orders()
+    {
+        return $this->hasMany(Orders::class, 'iduser');
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 
     /**
      * The attributes that should be cast.
