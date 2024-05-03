@@ -16,7 +16,7 @@ Kemudian, jika aplikasi Laravel tersebut memiliki database, buatlah nama databas
 ---------------------------------------
 Berikutnya jalankan perintah berikut:
 
-php artisan migrate:fresh --seed'
+php artisan migrate:fresh --seed
 untuk mengenarete isi database beserta data yang diinputkan
 ---------------------------------------
 Terakhir, untuk membukanya di web browser, jalankan perintah:
