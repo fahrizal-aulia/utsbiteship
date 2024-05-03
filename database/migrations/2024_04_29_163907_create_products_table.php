@@ -25,7 +25,7 @@ return new class extends Migration
             $table->double('product_height');
             $table->double('product_weight');
             $table->string('status', 255);
-            $table->enum('deleted', ['yes', 'no']);
+            $table->enum('deleted', ['yes', 'no'])->default('no');
             $table->timestamps();
             $table->string('slug', 255);
         });

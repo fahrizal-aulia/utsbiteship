@@ -33,12 +33,12 @@ return new class extends Migration
             $table->string('kodepos', 255);
             $table->string('email', 255);
             $table->string('phone', 255);
-            $table->text('addcatatan');
+            $table->text('addcatatan')->nullable();
             $table->string('payment_id', 11);
             $table->string('payment_method', 255);
             $table->string('payment_status', 255);
-            $table->string('tracking_number', 255);
-            $table->enum('deleted', ['yes', 'no']);
+            $table->string('tracking_number', 255)->nullable();
+            $table->enum('deleted', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->text('product_brand');
             $table->string('status', 255);
-            $table->enum('deleted', ['yes', 'no']);
+            $table->enum('deleted', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

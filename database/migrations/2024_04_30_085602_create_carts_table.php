@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->integer('quantity');
             $table->integer('total');
-            $table->enum('deleted', ['yes', 'no']);
+            $table->enum('deleted', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

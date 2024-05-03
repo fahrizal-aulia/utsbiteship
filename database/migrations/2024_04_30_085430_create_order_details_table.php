@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer('hargaproduk');
             $table->integer('qty');
             $table->integer('subtotalproduk');
-            $table->text('note');
-            $table->string('review', 255);
+            $table->text('note')->nullable();
+            $table->string('review', 255)->nullable();
             $table->string('status', 255);
-            $table->enum('deleted', ['yes', 'no']);
+            $table->enum('deleted', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

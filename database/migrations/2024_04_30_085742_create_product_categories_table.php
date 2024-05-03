@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
+            $table->text('product_category_name');
+            $table->string('status');
+            $table->enum('deleted', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

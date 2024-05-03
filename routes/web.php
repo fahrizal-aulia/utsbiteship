@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,4 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard
 // dashboad
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware('auth');
+Route::resource('/dashboard', ProductsController::class)->middleware('auth');
