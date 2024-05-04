@@ -22,7 +22,7 @@
     </div>
     <div class="navbar-nav">
         <div class="nav-item text-nowrap ">
-            <a href="/orders" class="nav-link px-3 bg-dark border-0 text-white">
+            <a href="/dashboard/checkout" class="nav-link px-3 bg-dark border-0 text-white">
                 <span data-feather="truck"></span> Delivery Order
                 @php
                     $ordersItemCount = \App\Models\Orders::where('status', 'draft')->count();
