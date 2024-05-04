@@ -44,12 +44,17 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-{
-    $product = Products::findOrFail($id);
+    public function show(products $product)
+    {
+        // Cek apakah data produk ada
+        $product = products::findOrFail($product->id);
 
-    return view('dashboard.show', ['product' => $product]);
-}
+        // Tampilkan data produk
+        return view('dashboard.show',[
+            'product'=>$product
+        ]);
+    }
+
 
 
     /**

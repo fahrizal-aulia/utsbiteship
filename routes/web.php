@@ -24,7 +24,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // dashboard
 // dashboad
 Route::get('/dashboard', [ProductsController::class, 'dashboard'])->middleware('auth');
-Route::get('/dashboard/product/{id}', [ProductsController::class, 'show'])->middleware('auth');
+Route::resource('/dashboard/product', ProductsController::class)->middleware('auth');
 // Route::get('/categories', function () {
 //     return view('categories', [
 //         'title' => 'Categories Produk',
