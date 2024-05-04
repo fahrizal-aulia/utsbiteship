@@ -81,7 +81,7 @@
                             <td colspan="4">Total</td>
                             <td>{{ $subtotal }}</td>
                             <td>
-                                <a href="" class="btn btn-success btn-sm float-end">Checkout</a>
+                                <a href="/dashboard/checkout" class="btn btn-success btn-sm float-end">Checkout</a>
                             </td>
                         </tr>
                     </tbody>
