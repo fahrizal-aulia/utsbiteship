@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/deliveryorders', [DeliveryOrderController::class, 'index']);
-Route::post('/deliveryorders/{id}/approve', [DeliveryOrderController::class, 'approve']);
-Route::post('/deliveryorders/{id}/reject', [DeliveryOrderController::class, 'reject']);
-Route::post('/deliveryorders/{id}/revisi', [DeliveryOrderController::class, 'revisi']);
+// Route::get('/deliveryorders', [DeliveryOrderController::class, 'index']);
+// Route::post('/deliveryorders/{id}/approve', [DeliveryOrderController::class, 'approve']);
+// Route::post('/deliveryorders/{id}/reject', [DeliveryOrderController::class, 'reject']);
+// Route::post('/deliveryorders/{id}/revisi', [DeliveryOrderController::class, 'revisi']);

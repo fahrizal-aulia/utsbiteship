@@ -6,7 +6,7 @@
         <div class="col-lg-8">
             {{-- {{ dd($product) }} --}}
 
-            <h1 class="mb-3">{{  $product->product_name}}</h1>
+            <h1 class="mb-3">Detail Produk</h1>
 
             {{-- @if ($product->category)
             <div style="max-height: 350px; overflow:hidden">
@@ -25,12 +25,12 @@
                 <div class="product-details my-3 fs-5">
                     <h2>{{ $product->product_name }}</h2>
                     <p>SKU: {{ $product->sku }}</p>
-                    <p>Category: {{ $product->product_category }}</p>
-                    <p>Brand: {{ $product->product_brand }}</p>
+                    <p>Category: {{ $product->category->product_category_name }}</p>
+                    <p>Brand: {{ $product->brands->product_brand }}</p>
                     <p>Price: Rp. {{ $product->product_price }}</p>
                     <p>Status: {{ $product->status }}</p>
                     <p>Description: {{ $product->product_detail }}</p>
-                    <form action="" method="POST" class="add-to-cart-form">
+                    <form action="/dashboard/carts" method="POST" enctype="multipart/form-data" class="add-to-cart-form">
                         @csrf
                         <div class="form-group mb-3">
                             <label class="mb-2" for="quantity">Quantity:</label>

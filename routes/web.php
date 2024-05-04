@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
@@ -25,6 +26,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // dashboad
 Route::get('/dashboard', [ProductsController::class, 'dashboard'])->middleware('auth');
 Route::resource('/dashboard/product', ProductsController::class)->middleware('auth');
+Route::resource('/dashboard/carts', CartController::class)->middleware('auth');
+Route::post('/dashboard/carts/drop', [CartController::class, 'drop'])->name('carts.drop')->middleware('auth');;
+
 // Route::get('/categories', function () {
 //     return view('categories', [
 //         'title' => 'Categories Produk',
