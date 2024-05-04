@@ -11,6 +11,13 @@ class ProductsController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function dashboard()
+    {
+        return view('dashboard.index',[
+            'products'=> products::all()
+            ]);
+    }
+
     public function index()
     {
         return view('dashboard.index',[
@@ -37,10 +44,13 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(products $products)
-    {
-        //
-    }
+    public function show($id)
+{
+    $product = Products::findOrFail($id);
+
+    return view('dashboard.show', ['product' => $product]);
+}
+
 
     /**
      * Show the form for editing the specified resource.

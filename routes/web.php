@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
+use App\Models\ProductCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,12 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard
 // dashboad
-Route::resource('/dashboard', ProductsController::class)->middleware('auth');
+Route::get('/dashboard', [ProductsController::class, 'dashboard'])->middleware('auth');
+Route::get('/dashboard/product/{id}', [ProductsController::class, 'show'])->middleware('auth');
+// Route::get('/categories', function () {
+//     return view('categories', [
+//         'title' => 'Categories Produk',
+//         "active" => 'categories',
+//         'categories' => ProductCategory::all()
+//     ]);
+// });
