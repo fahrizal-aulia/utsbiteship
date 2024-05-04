@@ -11,6 +11,12 @@
         <div class="nav-item text-nowrap ">
             <a href="/dashboard/carts" class="nav-link px-3 bg-dark border-0 text-white">
                 <span data-feather="shopping-cart"></span> Cart
+                @php
+                    $cartItemCount = \App\Models\Cart::where('deleted', 'no')->count();
+                @endphp
+                @if ($cartItemCount > 0)
+                    <span class="badge badge-pill text-info">{{ $cartItemCount }}</span>
+                @endif
             </a>
         </div>
     </div>
@@ -18,10 +24,23 @@
         <div class="nav-item text-nowrap ">
             <a href="/orders" class="nav-link px-3 bg-dark border-0 text-white">
                 <span data-feather="truck"></span> Delivery Order
+                @php
+                    $ordersItemCount = \App\Models\Orders::where('status', 'draft')->count();
+                @endphp
+                @if ($ordersItemCount > 0)
+                    <span class="badge badge-pill text-primary">{{ $ordersItemCount }}</span>
+                @endif
+
+                @php
+                    $ordersItemCount = \App\Models\Orders::where('status', 'needapproval')->count();
+                @endphp
+                @if ($ordersItemCount > 0)
+                    <span class="badge badge-pill text-warning">{{ $ordersItemCount }}</span>
+                @endif
             </a>
         </div>
     </div>
-    <div class="navbar-nav">
+    <div class="navbar-nav ">
         <div class="nav-item text-nowrap">
             <form action="/logout" method="post">
                 @csrf
