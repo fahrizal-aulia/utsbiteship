@@ -4,6 +4,7 @@ use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductsController;
 
@@ -30,6 +31,11 @@ Route::resource('/dashboard/product', ProductsController::class)->middleware('au
 Route::resource('/dashboard/carts', CartController::class)->middleware('auth');
 Route::post('/dashboard/carts/drop', [CartController::class, 'drop'])->name('carts.drop')->middleware('auth');;
 Route::resource('/dashboard/checkout', CheckoutController::class)->middleware('auth');
+Route::post('dashboard/checkout/saveDraft', [CheckoutController::class, 'saveDraft'])->name('checkout.saveDraft');
+Route::post('dashboard/checkout/submitApproval', [CheckoutController::class, 'submitApproval'])->name('checkout.submitApproval');
+
+
+Route::resource('/dashboard/orders', OrdersController::class)->middleware('auth');
 // Route::get('/categories', function () {
 //     return view('categories', [
 //         'title' => 'Categories Produk',

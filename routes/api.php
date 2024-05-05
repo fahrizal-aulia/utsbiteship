@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiOrdersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-// Route::get('/deliveryorders', [DeliveryOrderController::class, 'index']);
-// Route::post('/deliveryorders/{id}/approve', [DeliveryOrderController::class, 'approve']);
-// Route::post('/deliveryorders/{id}/reject', [DeliveryOrderController::class, 'reject']);
-// Route::post('/deliveryorders/{id}/revisi', [DeliveryOrderController::class, 'revisi']);
+Route::get('/dashboard/orders', [ApiOrdersController::class, 'index']);
+Route::post('/dashboard/orders/{id}/approve', [ApiOrdersController::class, 'approve']);
+Route::post('/dashboard/orders/{id}/reject', [ApiOrdersController::class, 'reject']);
+Route::post('/dashboard/orders/{id}/revisi', [ApiOrdersController::class, 'revisi']);

@@ -44,7 +44,7 @@ class CartController extends Controller
 
 
         // Redirect ke halaman indeks atau halaman lain
-        return redirect('/dashboard/carts')->with('success','Post Has Been Updated!');
+        return redirect('/dashboard/carts')->with('success','Product Has Been Updated!');
     }
 
     /**
@@ -79,7 +79,7 @@ class CartController extends Controller
         $cart = Cart::findOrFail($id);
         $cart->update(['deleted' => 'yes']);
 
-        return redirect('/dashboard/carts')->with('success','Post Has Been Deleted!');
+        return redirect('/dashboard/carts')->with('success','product Has Been Deleted!');
     }
 
     public function drop()

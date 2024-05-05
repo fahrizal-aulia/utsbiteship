@@ -5,11 +5,13 @@
     <div class="row my-3">
         <div class="col-lg-8">
             <div class="mb-3">
-                <!-- Deskripsi pengiriman -->
+                <h1>UTS Delivery Order - Get Shipping</h1>
             </div>
 
             <!-- Form untuk memasukkan kode pos tujuan -->
             <div class="mb-3">
+                <label for="destination_postal_code" class="form-label">Setiap pengiriman dikirim dari PT. MOTASA INDONESIA KODE POS 61382</label>
+                <br>
                 <label for="destination_postal_code" class="form-label">Destination Postal Code:</label>
                 <input type="text" class="form-control" id="destination_postal_code" name="destination_postal_code">
                 <small id="postal_code_error" class="text-danger" style="display:none;">Postal code is empty!</small>
@@ -54,10 +56,19 @@
 
             <!-- Tombol untuk melanjutkan ke pembayaran -->
             <div class="mb-3" id="proceed_btn" style="display: none;">
-                <form id="payment_form" action="" method="POST">
+                <form id="payment_form" action="/dashboard/checkout" method="POST">
                     @csrf
-                    <input type="hidden" name="itemsubtotal" value="{{ $totalPrice }}">
-                    <input type="hidden" id="shipping_price_input" name="shippingprice" value="">
+                    <input type="text" id="namalengkap" name="namalengkap" placeholder="Nama Lengkap">
+                    <input type="text" id="firstname" name="firstname" placeholder="Nama Depan">
+                    <input type="text" id="lastname" name="lastname" placeholder="Nama Belakang">
+                    <input type="text" id="negara" name="negara" placeholder="Negara">
+                    <input type="text" id="provinsi" name="provinsi" placeholder="Provinsi">
+                    <input type="text" id="kota" name="kota" placeholder="Kota">
+                    <input type="text" id="kecamatan" name="kecamatan" placeholder="Kecamatan">
+                    <input type="text" id="alamat" name="alamat" placeholder="Alamat">
+                    <input type="text" id="phone" name="phone" placeholder="Nomor Telepon">
+                    <input type="hidden" name="itemsub_total" value="{{ $totalPrice }}">
+                    <input type="hidden" id="shipping_price_input" name="shipping_price" value="">
                     <input type="hidden" id="shipping_courier_input" name="pengiriman" value="">
                     <input type="hidden" id="post_destination_postal_code" name="post_destination_postal_code" value="">
                     <div id="shipping_price_options">

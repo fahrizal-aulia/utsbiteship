@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('dashboard/delivery*') ? 'active' : '' }}" href="/dashboard/delivery">
+                <a class="nav-link {{ Request::is('dashboard/orders*') ? 'active' : '' }}" href="/dashboard/orders">
                     <span data-feather="file-text"></span>
                     Delivery Order
                 </a>
